@@ -18,3 +18,7 @@ Hogy ne legyen túl bonyolult csak macskát és kutyát lehet majd csak örökbe
   3.3 Űrlapkezelés és adatküldés szerverre: Ha a felhasználó kitölt egy örökbefogadási kérelmet, annak feldolgozása és tárolása az adatbázisban PHP segítségével történik.
   3.4 Adminisztrációs felület: Ha van adminisztrátor, aki új állatokat ad hozzá az örökbefogadó rendszerhez, az admin felület mögötti műveletek
   3.5 Email küldés: Amikor egy felhasználó örökbefogadási kérelmet küld. (ez még lehet nem majd megbeszéljük)
+
+4. Adatbázis integráció (PHP + SQL)
+   4.1 Állat adatok lekérése: Dinamikusan megjelenítheted az állatok képeit és adatait az adatbázisból.
+   4.2 Felhasználói kérelmek tárolása: Ha valaki benyújt egy örökbefogadási kérelmet, PHP-val rögzítheted az adatokat az adatbázisban.
