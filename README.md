@@ -1,7 +1,7 @@
 Ha nem voltatok órán / elfelejtettétek hogy kell beállítani az xampp-ot itt egy videó: https://www.youtube.com/watch?v=jLqBiSDNXO0
 
 Arra gondoltam hogy feldaraboljuk részegységekre a beadandót és mindenki csinál pár részt. 
-Hogy ne legyen túl bonyulult csak macskát és kutyát lehet majd csak örökbefogadni (a keresés könnyítése érdekében).
+Hogy ne legyen túl bonyolult csak macskát és kutyát lehet majd csak örökbefogadni (a keresés könnyítése érdekében).
 
 1. Statikus rész (html +ccs)
   1.1 Statikus oldalak és tartalmak: (például a nyitólap, rólunk oldal, kapcsolat oldal)
