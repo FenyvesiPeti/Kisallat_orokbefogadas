@@ -1,0 +1,35 @@
+.site-header{
+    min-height: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e4dcdc;
+    text-align: center;
+    padding: 20px;
+}
+.sign-in, .registration{
+    padding: 3px 7px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    background-color: #172447;
+    border: 1px solid #172447;
+    font-size: 106%;
+    font-weight: 500;
+    font-family: 'Signika',sans-serif;
+}
+.site-footer{
+    min-height: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.site-footer p {
+    margin: 0;
+}
