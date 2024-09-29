@@ -13,8 +13,7 @@
             <div class="row">
                 <div class="col text-end">
                     <a href="fotozastippek.php">Fótózási tippek</a>
-                    <a href="about.php">Rólunk</a>
-                    <a href="contact.php">Kapcsolat</a>   
+                    <a href="kapcsolat.php">Kapcsolat</a>   
                 </div>
             </div>
         </div> 
