@@ -1,22 +1,46 @@
 .site-header{
     min-height: 30px;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    background-color: #e4dcdc;
+    background-color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 3px solid #4C596C;
 }
 .sign-in, .registration{
+    color: #0f1111;
+    font-family: "Amazon Ember",sans-serif;
+    line-height: 24x;
+    text-decoration: none;
+    background-color: #eaeaea;
     padding: 3px 7px;
     text-align: center;
     cursor: pointer;
-    color: white;
-    background-color: #172447;
     border: 1px solid #172447;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     font-size: 106%;
     font-weight: 500;
-    font-family: 'Signika',sans-serif;
+    display: inline-block;
+    margin-top: 5px;
+}
+.registration{
+    background-color: crimson;
+}
+.sign-in > a:hover{
+    text-decoration: none;
+    color:#cc9939;
+}
+.other-sites > a{
+    line-height: 30px;
+    text-decoration: none;
+    color: #0f1111;
+    padding: 5px;
+}
+.other-sites > a:hover{
+    color: #cc9939;;
 }
 .site-footer{
     min-height: 30px;
@@ -24,7 +48,7 @@
     display: flex;
     flex-direction: column;
     margin-top: auto;
-    background-color: #333;
+    background-color: #3f3d3d;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -33,3 +57,85 @@
 .site-footer p {
     margin: 0;
 }
+
+
+
+.log_in_style, .registration-style{
+    max-width: 400px;
+    width: 80%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  .registration-style{
+    padding: 30px;
+  }
+  .log_in_style .registration-style{
+    display: none;
+  }
+  #check:checked ~ .registration-style{
+    display: block;
+  }
+  #check:checked ~ .login{
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  .log_in_style .form{
+    padding: 2rem;
+  }
+  .form header{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+   .form input{
+     height: 60px;
+     width: 100%;
+     padding: 0 15px;
+     font-size: 17px;
+     margin-bottom: 1.3rem;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     outline: none;
+   }
+   .form input:focus{
+     box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+   }
+  .form a{
+    font-size: 16px;
+    color: #009579;
+    text-decoration: none;
+  }
+  .form a:hover{
+    text-decoration: underline;
+  }
+  .form input.button{
+    color: #fff;
+    background: #009579;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1.7rem;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  .form input.button:hover{
+    background: #006653;
+  }
+  .signup{
+    font-size: 17px;
+    text-align: center;
+  }
+  .signup label{
+    color: #009579;
+    cursor: pointer;
+  }
+  .signup label:hover{
+    text-decoration: underline;
+  }

@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <?php include 'header.php'; ?>
     </header>
-        <main class="fotozas-tippek-main container">
+        <main class="flex-grow-1 container">
             <h1 class="row">Fotózási tippek</h1>
             <p class="col-10">
                 Néhány tipp a háziállat fotózásához, hogy jobb képeket készíts, ő pedig  így hamarabb találjon gazdira! 
