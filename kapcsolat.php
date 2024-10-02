@@ -11,24 +11,14 @@
     <header>
         <?php include 'header.php'; ?>
     </header>
-        <main class="flex-grow-1">
-            <h1>Haliii</h1> 
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="index.php"><img src="img/xdd.jpg" alt="Logo" style="max-height: 80px;"></a>
-                        <p>Majd php val 3-4 oszlop soronként pár infó az állatokról</p>
-                    </div>
-                    <div class="col">
-                        <a href="index.php"><img src="img/xdd.jpg" alt="Logo" style="max-height: 80px;"></a>
-                        <p>Majd php val 3-4 oszlop soronként pár infó az állatokról</p>
-                    </div>
-                    <div class="col">
-                        <a href="index.php"><img src="img/xdd.jpg" alt="Logo" style="max-height: 80px;"></a>
-                        <p>Majd php val 3-4 oszlop soronként pár infó az állatokról</p>
-                    </div>
-                </div>
-            </div>
+    <main class="flex-grow-1 container kapcsolat-style">
+            <h1 class="row">Elérhet minket:</h1>
+            <p class="col-12">
+                example.email@gmail.com
+            </p>
+            <p class="col-12">
+                ebből inkább (ASZF / hogyan kezeld az oldalt) oldal lesz
+            </p>
         </main>
     <footer>
         <?php include 'footer.php'; ?>

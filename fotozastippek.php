@@ -11,22 +11,22 @@
     <header>
         <?php include 'header.php'; ?>
     </header>
-        <main class="flex-grow-1 container">
+        <main class="flex-grow-1 container fotozastippek-style">
             <h1 class="row">Fotózási tippek</h1>
-            <p class="col-10">
+            <p class="col-12">
                 Néhány tipp a háziállat fotózásához, hogy jobb képeket készíts, ő pedig  így hamarabb találjon gazdira! 
                 Az alábbi ötletek sok lefotózott, és rövid időn belül sikeresen örökbefogadott szőrmók marketingezésének tapasztalatai.
             </p>
             <h2 class="row">Háttér:</h2>
-            <p class="col-10">
+            <p class="col-12">
             Amennyiben lakásban fotózol, érdemes egy homogén, egyszínű  hátteret választani, például egy takarót, plédet, nagyobb párnát. Ha lakáson kívül fotózod, próbáld meg fűben, vagy valami olyan közegben, ami akár jópofává, akár kedvesebbé teszi a képet. Használhatsz kellékeket is, kölykök például nagyon jól mutatnak fonott vesszőkosárban. 
             </p>
             <h2 class="row">Kompozíció:</h2>
-            <p class="col-10">
+            <p class="col-12">
                 Készíts többféle képet a háziállatról, közelit és egész alakosat is. Fontos hogy legyen közte olyan ahol látszanak a szemei, és belenéz a kamerába.
             </p>
             <h2 class="row">Időzítés:</h2>
-            <p class="col-10">
+            <p class="col-12">
                 Nem minden állatnak van türelme pózolni. Ezért vagy délutáni sziesztája közben kapd el, vagy kérj segítséget a fotózáshoz, és  egyikőtök keltse fel a figyelmét, és irányítsa egy jutifalatra, így rábírhatjátok hogy egy helyben maradjon a kép elkészültéig. Ha  fényképeződ beállításai megengedik, vedd minél rövidebbre a záridőt és használj (nem túl erős) vakut, így nem fog „bemozdulni" a képen.
             </p>
         </main>
