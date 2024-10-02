@@ -1,3 +1,11 @@
+
+a{
+  color: #000000;
+  text-decoration: none;
+}
+a:hover{
+  color:#000000 !important;
+}
 .site-header{
     min-height: 30px;
     width: 50%;
@@ -7,31 +15,36 @@
     text-align: center;
     padding: 10px;
     border-radius: 4px;
-    border-bottom: 3px solid #FF8F00;
+    border-bottom: 3px solid #009579;
 }
 .sign-in, .registration{
     color: #0f1111;
     font-family: "Amazon Ember",sans-serif;
     line-height: 24x;
     text-decoration: none;
-    background-color: #eaeaea;
+    background-color: #ededed;
     padding: 3px 7px;
     text-align: center;
     cursor: pointer;
-    border: 1px solid #172447;
-    border-radius: 8px;
-    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px ;
     font-size: 106%;
     font-weight: 500;
     display: inline-block;
     margin-top: 5px;
 }
+.sign-in:hover, .registration:hover{
+  box-shadow: rgba(159, 161, 161, 0.374) 0 3px 6px ;
+  border-color: #006653;
+  color:#006653 !important;
+}
 .registration{
-    background-color: crimson;
+    background-color: red
 }
 .sign-in > a:hover{
     text-decoration: none;
-    color:#cc9939;
+    color:#009579;
 }
 .other-sites > a{
     line-height: 30px;
@@ -40,9 +53,9 @@
     padding: 5px;
 }
 .other-sites > a:hover{
-    color: #FF8F00;
+    color: #009579 !important;
     text-decoration: solid;
-    text-decoration: underline solid #FF8F00;;
+    text-decoration: underline solid #006653;
 }
 .site-footer{
     min-height: 30px;
@@ -50,7 +63,7 @@
     display: flex;
     flex-direction: column;
     margin-top: auto;
-    background-color: #FF8F00;
+    background-color: #009579;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -140,9 +153,12 @@
     font-size: 17px;
     text-align: center;
   }
-  .signup label{
+  .signup a{
     color: #009579;
     cursor: pointer;
+  }
+  .signup a:hover{
+    color: #006653 !important;
   }
   .signup label:hover{
     text-decoration: underline;

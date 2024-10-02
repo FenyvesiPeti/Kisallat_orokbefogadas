@@ -15,16 +15,17 @@
         <div class="log_in_style">
             <input type="checkbox" id="check">
             <div class="login form">
-                <header>Login</header>
+                <header>Bejelentkezés</header>
                 <form action="#">
-                    <input type="text" placeholder="Enter your email">
-                    <input type="password" placeholder="Enter your password">
-                    <a href="#">Forgot password?</a>
-                    <input type="button" class="button" value="Login">
+                    <input type="text" placeholder="Adja meg a felhasználónevét">
+                    <input type="text" placeholder="Adja meg az e-mailt">
+                    <input type="password" placeholder="Adja meg a jelszavát">
+                    <!--<a href="#">Forgot password?</a>-->
+                    <input type="button" class="button" value="Bejelentkezés">
                 </form>
                 <div class="signup">
-                    <span class="signup">Don't have an account?
-                    <label for="check">Signup</label>
+                    <span class="signup">Nincs fiókja?
+                    <a href="sign_up.php">Regisztráció</a>
                     </span>
                 </div>
             </div>

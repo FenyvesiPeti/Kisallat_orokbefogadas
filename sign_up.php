@@ -13,16 +13,17 @@
     </header>
         <main class="flex-grow-1">
         <div class="registration-style form">
-            <header>Signup</header>
+            <header>Regisztráció</header>
             <form action="#">
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Create a password">
-                <input type="password" placeholder="Confirm your password">
+                <input type="text" placeholder="Adja meg a felhasználónevét">
+                <input type="text" placeholder="Adja meg az e-mailt">
+                <input type="password" placeholder="Adja meg a jelszavát">
+                <input type="password" placeholder="Erősítse meg a jelszavát">
                 <input type="button" class="button" value="Signup">
             </form>
             <div class="signup">
-                <span class="signup">Already have an account?
-                <label for="check">Login</label>
+                <span class="signup">Van már fiókja?
+                <a href="log_in.php">Bejelentkezés</a>
                 </span>
             </div>
         </div>
