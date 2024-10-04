@@ -12,8 +12,90 @@
         <?php include 'header.php'; ?>
     </header>
         <main class="flex-grow-1">
-            <h1>Haliaaii</h1> 
-            <div class="container">
+        <div class="container-fluid text-decoration-underline search-box">
+    <div class="row">
+        <!-- Bal oldali szűrési opciók -->
+        <div class="col-10">
+            <fieldset>
+                <h2>Keresés név szerint</h2>
+                <div class="mb-3">
+                    <input id="Form_Adaption_Keywords" class="form-control" type="text" name="Keywords" placeholder="Pl. Bogáncs">
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <p class="mb-0">Faj</p>
+                        <ul role="listbox">
+                            <li role="option">
+                                <input id="" type="checkbox" value="kutya"> 
+                                <label>kutya</label>
+                            </li>
+                            <li role="option">
+                                <input id="" type="checkbox" value="macska"> 
+                                <label>macska</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-2">
+                        <p class="mb-0">Ivar</p>
+                        <ul role="listbox">
+                            <li role="option">
+                                <input id="" type="checkbox" value="hím"> 
+                                <label>hím</label>
+                            </li>
+                            <li role="option">
+                                <input id="" type="checkbox" value="nőstény"> 
+                                <label>nőstény</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-2">
+                        <p class="mb-0">Méret</p>
+                        <ul role="listbox">
+                            <li role="option">
+                                <input id="" type="checkbox" value="kicsi"> 
+                                <label>kicsi</label>
+                            </li>
+                            <li role="option">
+                                <input id="" type="checkbox" value="közepes"> 
+                                <label>közepes</label>
+                            </li>
+                            <li role="option">
+                                <input id="" type="checkbox" value="nagy"> 
+                                <label>nagy</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-2">
+                        <p>Kor</p>
+                        <div>
+                            <p>Évtől</p>
+                            <input type="text" name="form" placeholder="0" >
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div>
+                            <p>Évig</p>
+                            <input type="text" name="form" placeholder="25" >
+                        </div>
+                    </div>
+                </div> <!-- row vége -->
+            </fieldset>
+        </div>
+
+        <!-- Jobb oldali szűrési gombok -->
+        <div class="col-2 d-flex flex-column justify-content-center align-items-center">
+            <input id="Form_Adaption_action_doSearch" class=" mb-2" type="submit" name="action_doSearch" value="Szűrés">
+            <a class="resetfields" href="#">Szűrés törlése</a>
+        </div>
+    </div>
+</div>
+
+            <!--<div class="container">
                 <div class="row">
                     <div class="col">
                         <a href="index.php"><img src="img/xdd.jpg" alt="Logo" style="max-height: 80px;"></a>
@@ -28,7 +110,7 @@
                         <p>Majd php val 3-4 oszlop soronként pár infó az állatokról</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </main>
     <footer>
         <?php include 'footer.php'; ?>

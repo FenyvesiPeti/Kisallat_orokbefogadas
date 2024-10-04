@@ -19,7 +19,7 @@ body::before {
   z-index: -1; 
 }
 a{
-  color: #000000;
+  color: #000000 !important;
   text-decoration: none;
 }
 a:hover{
@@ -30,7 +30,7 @@ a:hover{
     width: 50%;
     display: flex;
     flex-direction: column;
-    background-color: #ededed;
+    background-color: #fff9f9;
     text-align: center;
     padding: 10px;
     border-radius: 4px;
@@ -41,11 +41,11 @@ a:hover{
     font-family: "Amazon Ember",sans-serif;
     line-height: 24x;
     text-decoration: none;
-    background-color: #ededed;
+    background-color: #fff;
     padding: 3px 7px;
     text-align: center;
     cursor: pointer;
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     border-radius: 4px;
     box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px ;
     font-size: 106%;
@@ -56,7 +56,9 @@ a:hover{
 .sign-in:hover, .registration:hover{
   box-shadow: rgba(159, 161, 161, 0.374) 0 3px 6px ;
   border-color: #006653;
-  color:#006653 !important;
+  
+  transform: scale(1.05);
+  transition: 0.1s ease-in-out;
 }
 .registration{
     background-color: red
@@ -105,6 +107,7 @@ a:hover{
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+
 }
 .fotozastippek-style > h1, h2, p{
   padding-left: 20px;
@@ -112,6 +115,21 @@ a:hover{
 .kapcsolat-style > h1, h2, p{
   padding-left: 20px;
 }
+
+.search-box{
+  background-color: #b2dadf;;
+}
+.form-control{
+  max-width: 15%;
+}
+
+
+
+
+
+
+
+
 
 .log_in_style, .registration-style{
     max-width: 400px;
@@ -177,6 +195,9 @@ a:hover{
     margin-top: 1.7rem;
     cursor: pointer;
     transition: 0.4s;
+  }
+  .signup > a{
+    color: #009579 !important;
   }
   .form input.button:hover{
     background: #006653;

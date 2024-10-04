@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col text-end other-sites">
                     <a href="fotozastippek.php">Fótózási tippek</a>
-                    <a href="kapcsolat.php">Kapcsolat</a>
+                    <a href="kapcsolat.php">A weboldalról</a>
                 </div>
             </div>
             <div class="row">
