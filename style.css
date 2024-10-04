@@ -27,14 +27,14 @@ a:hover{
 }
 .site-header{
     min-height: 30px;
-    width: 50%;
+    max-width: 90% !important;
     display: flex;
     flex-direction: column;
-    background-color: #fff9f9;
+    background-color: #ffffff;
     text-align: center;
     padding: 10px;
     border-radius: 4px;
-    border-bottom: 3px solid #009579;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .sign-in, .registration{
     color: #0f1111;
@@ -125,12 +125,63 @@ a:hover{
 
 
 
+.animal-box {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #eef4f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+}
+
+.animal-box img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+}
+
+.animal-box h3 {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.animal-box p {
+ padding: 0 !important;
+}
+
+.animal-box .adopt-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.animal-box .adopt-button:hover {
+  background: #6a135c;
+  color: #fff !important;
+}
+
+.animal-box .adopt-button::after{
+  background: url("img/arrow_right.svg") no-repeat center center;
+  margin-left: 15px;
+  display: inline-block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  vertical-align: -1.9px;
+}
 
 
 
 
 
-
+/*Bejelntkezés regiszt*/
 .log_in_style, .registration-style{
     max-width: 400px;
     width: 80%;

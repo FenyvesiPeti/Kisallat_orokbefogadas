@@ -1,4 +1,4 @@
-<header class="container site-header fixed-top">
+<header class="container-fluid site-header fixed-top mt-3">
     <div class="d-flex justify-content-between align-items-center">
         <div class="col-md-6 d-flex align-items-center">
             <a href="index.php"><img src="img/icon.webp" alt="Logo" style="max-height: 80px;"></a>
