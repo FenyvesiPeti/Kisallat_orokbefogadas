@@ -102,12 +102,12 @@ a:hover{
 }
 .fotozastippek-style, .kapcsolat-style{
   max-width: 60% !important;
-  padding-top: 5px !important;
+  padding-top: 15px !important;
   margin-top: 70px !important;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 .fotozastippek-style > h1, h2, p{
   padding-left: 20px;
@@ -115,16 +115,65 @@ a:hover{
 .kapcsolat-style > h1, h2, p{
   padding-left: 20px;
 }
+.kutya-hero{
+  background: url("img/kutyahero.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+}
+
 
 .search-box{
-  background-color: #b2dadf;;
+  background-color: #b2dadf;
+}
+.search-box fieldset h2{
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+.search-box fieldset p{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
 }
 .form-control{
   max-width: 15%;
 }
+.form-control-age{
+  border-radius: 7px;
+  border: 1px solid #aaa;
+  height: 40px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  padding: 0 15px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.checkbox{
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.search-box fieldset ul li label {
+  padding-left: 3px !important;
+  font-weight: 600;
+}
+
+ul{
+  list-style: none !important;
+  padding-left: 20px !important;
+}
+fieldset > h2, h3, p, label{
+  text-decoration: none !important;
+}
 
 
-
+/*Állatok "doboza"*/
 .animal-box {
   padding: 15px;
   margin-bottom: 20px;
@@ -145,10 +194,14 @@ a:hover{
 .animal-box h3 {
   font-size: 1.5em;
   margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
 }
 
 .animal-box p {
  padding: 0 !important;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 17.5px;
 }
 
 .animal-box .adopt-button {
@@ -177,93 +230,117 @@ a:hover{
   vertical-align: -1.9px;
 }
 
-
+.action-button{
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 48px;
+  max-width: 100%;
+  padding: 2px 44px;
+}
+.action-button:hover{
+  color:#fff;
+  background-color: #6a135c;
+}
+.resetfields{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
 
 
 
 /*Bejelntkezés regiszt*/
 .log_in_style, .registration-style{
-    max-width: 400px;
-    width: 80%;
-    margin: auto;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  }
-  .registration-style{
-    padding: 30px;
-  }
-  .log_in_style .registration-style{
-    display: none;
-  }
-  #check:checked ~ .registration-style{
-    display: block;
-  }
-  #check:checked ~ .login{
-    display: none;
-  }
-  #check{
-    display: none;
-  }
-  .log_in_style .form{
-    padding: 2rem;
-  }
-  .form header{
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-   .form input{
-     height: 60px;
-     width: 100%;
-     padding: 0 15px;
-     font-size: 17px;
-     margin-bottom: 1.3rem;
-     border: 1px solid #ddd;
-     border-radius: 6px;
-     outline: none;
-   }
-   .form input:focus{
-     box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-   }
-  .form a{
-    font-size: 16px;
-    color: #009579;
-    text-decoration: none;
-  }
-  .form a:hover{
-    text-decoration: underline;
-  }
-  .form input.button{
-    color: #fff;
-    background: #009579;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-top: 1.7rem;
-    cursor: pointer;
-    transition: 0.4s;
-  }
-  .signup > a{
-    color: #009579 !important;
-  }
-  .form input.button:hover{
-    background: #006653;
-  }
-  .signup{
+  max-width: 400px;
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.registration-style{
+  padding: 30px;
+}
+.log_in_style .registration-style{
+  display: none;
+}
+#check:checked ~ .registration-style{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.log_in_style .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+  .form input{
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
     font-size: 17px;
-    text-align: center;
+    margin-bottom: 1.3rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
   }
-  .signup a{
-    color: #009579;
-    cursor: pointer;
+  .form input:focus{
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
   }
-  .signup a:hover{
-    color: #006653 !important;
-  }
-  .signup label:hover{
-    text-decoration: underline;
-  }
+.form a{
+  font-size: 16px;
+  color: #009579;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #009579;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.signup > a{
+  color: #009579 !important;
+}
+.form input.button:hover{
+  background: #006653;
+}
+.signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signup a{
+  color: #009579;
+  cursor: pointer;
+}
+.signup a:hover{
+  color: #006653 !important;
+}
+.signup label:hover{
+  text-decoration: underline;
+}
