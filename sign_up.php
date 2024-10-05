@@ -19,7 +19,7 @@
                 <input type="text" placeholder="Adja meg az e-mailt">
                 <input type="password" placeholder="Adja meg a jelszavát">
                 <input type="password" placeholder="Erősítse meg a jelszavát">
-                <input type="button" class="button" value="Signup">
+                <input type="button" class="button" value="Regisztráció">
             </form>
             <div class="signup">
                 <span class="signup">Van már fiókja?

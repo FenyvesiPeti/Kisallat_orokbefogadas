@@ -98,28 +98,64 @@
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
-                    <a href="animal.php?id=1" class="adopt-button">További részletek</a>
+
+                    <!--Megnézzük hogy bevan-e jelenzkezve-->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
+                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
+                    <?php else: ?>
+                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
+                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                    <?php endif; ?>
+
                 </div>
                 <div class="col-3 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
-                    <a href="animal.php?id=1" class="adopt-button">További részletek</a>
+
+                    <!--Megnézzük hogy bevan-e jelenzkezve-->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
+                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
+                    <?php else: ?>
+                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
+                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                    <?php endif; ?>
+
                 </div>
                 <div class="col-3 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
-                    <a href="animal.php?id=1" class="adopt-button">További részletek</a>
+
+                    <!--Megnézzük hogy bevan-e jelenzkezve-->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
+                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
+                    <?php else: ?>
+                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
+                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                    <?php endif; ?>
+
                 </div>
                 <div class="col-3 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
-                    <a href="animal.php?id=1" class="adopt-button">További részletek</a>
+
+                    <!--Megnézzük hogy bevan-e jelenzkezve-->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
+                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
+                    <?php else: ?>
+                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
+                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                    <?php endif; ?>
+                
                 </div>
             </div>
         </div>

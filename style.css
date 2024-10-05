@@ -40,37 +40,49 @@ a:hover{
     border-radius: 4px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
-.sign-in, .registration{
+.btn-reg{
+  background-color: rgb(190, 0, 0) !important;
+  border-color: rgb(190, 0, 0) !important;
+}
+.btn-reg:hover{
+  background-color: rgb(226, 0, 0) !important;
+  border-color: rgb(226, 0, 0) !important;
+}
+/*.sign-in, .registration{
+    height: 30px;
     color: #0f1111;
     font-family: "Amazon Ember",sans-serif;
-    line-height: 24x;
+    line-height: 25px;
     text-decoration: none;
     background-color: #fff;
     padding: 3px 7px;
     text-align: center;
     cursor: pointer;
     border: 1px solid #000000;
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px ;
     font-size: 106%;
     font-weight: 500;
     display: inline-block;
     margin-top: 5px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .sign-in:hover, .registration:hover{
   box-shadow: rgba(159, 161, 161, 0.374) 0 3px 6px ;
-  border-color: #006653;
-  
-  transform: scale(1.05);
-  transition: 0.1s ease-in-out;
+}
+.sign-in:hover{
+  background-color: #dfdfdf;
 }
 .registration{
-    background-color: red
+    background-color: red;
+}
+.registration:hover{
+  background-color: crimson;
 }
 .sign-in > a:hover{
     text-decoration: none;
     color:#009579;
-}
+}*/
 .other-sites > a{
     line-height: 30px;
     text-decoration: none;
@@ -81,6 +93,12 @@ a:hover{
     color: #009579 !important;
     text-decoration: solid;
     text-decoration: underline solid #006653;
+}
+.btn{
+  color: #fff !important;
+}
+.btn:hover{
+  color: #fff !important;
 }
 
 /*Footer*/

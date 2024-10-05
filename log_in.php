@@ -16,7 +16,7 @@
             <input type="checkbox" id="check">
             <div class="login form">
                 <header>Bejelentkezés</header>
-                <form action="#">
+                <form method="POST" action="log_in.php">
                     <input type="text" placeholder="Adja meg a felhasználónevét">
                     <input type="text" placeholder="Adja meg az e-mailt">
                     <input type="password" placeholder="Adja meg a jelszavát">
@@ -33,5 +33,15 @@
     <footer>
         <?php include 'footer.php'; ?>
     </footer>
+    <?php
+    //TESZT ha a "Bejelentkezés" gombra (ami a headerben van) 
+    //kattintasz amikor már a log.php oldalon vagy akkor bedob egy teszt felhasználóba"
+
+    // Szimuláljuk, hogy a felhasználó be van jelentkezve
+    // Ha valós bejelentkezés lenne, ez az adatbázisból jönne.
+    $_SESSION['loggedin'] = true;
+    $_SESSION['username'] = "TesztFelhasználó";
+    $_SESSION['user_id'] = 1;
+    ?>
 </body>
 </html>
