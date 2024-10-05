@@ -11,10 +11,10 @@
     <header>
         <?php include 'header.php'; ?>
     </header>
-        <main class="flex-grow-1">
-        <div class="container-fluid kutya-hero">
-
-        </div>
+    <main class="flex-grow-1">
+        <!--Kutya kép -->
+        <div class="container-fluid kutya-hero"></div>
+        <!--Szűrés + keresés rész -->
         <div class="container-fluid search-box pt-5 pb-3">
             <div class="row">
                 <!-- Bal oldali szűrési opciók -->
@@ -82,14 +82,15 @@
                         </div>
                     </fieldset>
                 </div>
-
-                    <div class="col-2 d-flex flex-column justify-content-center align-items-center">
-                        <input id="Form_Adaption_action_doSearch" class="mb-2 action-button" type="submit" name="action_doSearch" value="Szűrés">
-                        <a class="resetfields" href="#">Szűrés törlése</a>
-                    </div>
+                <!--Jobb oldali rész -->
+                <div class="col-2 d-flex flex-column justify-content-center align-items-center">
+                    <input id="Form_Adaption_action_doSearch" class="mb-2 action-button" type="submit" name="action_doSearch" value="Szűrés">
+                    <a class="resetfields" href="#">Szűrés törlése</a>
                 </div>
+            </div>
         </div>
 
+        <!--Állatok doboza -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3 animal-box">
@@ -122,8 +123,7 @@
                 </div>
             </div>
         </div>
-            
-        </main>
+    </main>
     <footer>
         <?php include 'footer.php'; ?>
     </footer>

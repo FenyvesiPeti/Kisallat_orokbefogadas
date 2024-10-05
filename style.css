@@ -1,10 +1,11 @@
 body, main{
   padding-top: 60px !important;
 }
+
+/*Háttérkép*/
 body {
   position: relative;
 }
-
 body::before {
   content: "";
   position: absolute;
@@ -12,12 +13,13 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("img/test.jpg");
+  background-image: url("img/background.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.3; 
   z-index: -1; 
 }
+
 a{
   color: #000000 !important;
   text-decoration: none;
@@ -25,6 +27,8 @@ a{
 a:hover{
   color:#000000 !important;
 }
+
+/*Header*/
 .site-header{
     min-height: 30px;
     max-width: 90% !important;
@@ -78,13 +82,15 @@ a:hover{
     text-decoration: solid;
     text-decoration: underline solid #006653;
 }
+
+/*Footer*/
 .site-footer{
     min-height: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: auto;
-    background-color: #009579;
+    background-color: #3e4443;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -100,6 +106,8 @@ a:hover{
     padding-left: 20px;
     font-size: medium;
 }
+
+/*Fotózási tippek + kapcsolat oldal*/
 .fotozastippek-style, .kapcsolat-style{
   max-width: 60% !important;
   padding-top: 15px !important;
@@ -115,6 +123,8 @@ a:hover{
 .kapcsolat-style > h1, h2, p{
   padding-left: 20px;
 }
+
+/*Menü oldal 1. kép*/
 .kutya-hero{
   background: url("img/kutyahero.jpg");
   background-size: cover;
@@ -123,7 +133,7 @@ a:hover{
   height: 500px;
 }
 
-
+/*Keresés + szűrés rész*/
 .search-box{
   background-color: #b2dadf;
 }
@@ -171,7 +181,31 @@ ul{
 fieldset > h2, h3, p, label{
   text-decoration: none !important;
 }
-
+.action-button{
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 48px;
+  max-width: 100%;
+  padding: 2px 44px;
+}
+.action-button:hover{
+  color:#fff;
+  background-color: #6a135c;
+}
+.resetfields{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
 
 /*Állatok "doboza"*/
 .animal-box {
@@ -230,35 +264,7 @@ fieldset > h2, h3, p, label{
   vertical-align: -1.9px;
 }
 
-.action-button{
-  align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  height: 48px;
-  max-width: 100%;
-  padding: 2px 44px;
-}
-.action-button:hover{
-  color:#fff;
-  background-color: #6a135c;
-}
-.resetfields{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-
-
-/*Bejelntkezés regiszt*/
+/*Bejelntkezés regisztrálció*/
 .log_in_style, .registration-style{
   max-width: 400px;
   width: 80%;
