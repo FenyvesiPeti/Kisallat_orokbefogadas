@@ -34,8 +34,8 @@
         <?php include 'footer.php'; ?>
     </footer>
     <?php
-    //TESZT ha a "Bejelentkezés" gombra (ami a headerben van) 
-    //kattintasz amikor már a log.php oldalon vagy akkor bedob egy teszt felhasználóba"
+    //TESZT ha a "Bejelentkezés" oldalról bármelyik linkre/gombra 
+    //kattintasz a header-ben akkor bejelentkeztet egy tesztfelhasználóba
 
     // Szimuláljuk, hogy a felhasználó be van jelentkezve
     // Ha valós bejelentkezés lenne, ez az adatbázisból jönne.
