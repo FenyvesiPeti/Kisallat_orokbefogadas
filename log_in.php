@@ -18,9 +18,9 @@
                 <header>Bejelentkezés</header>
                 <?php
                 if(isset($_POST["login"])){
-                    // Check if a session is already started before calling session_start()
+                    //Megnézi, hogy van-e már session, ha nincs, akkor létrehozza
                     if (session_status() == PHP_SESSION_NONE) {
-                        session_start(); // Start session only when login is attempted
+                        session_start(); //elinicializálja a session változót
                     }
                     $email = $_POST["email"];
                     $password = $_POST["password"];

@@ -1,5 +1,5 @@
 <?php
-
+//Adatbázishoz csatlakozás
 $hostName = "localhost";
 $dbUser = "root";
 $dbPassword = "";

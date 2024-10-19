@@ -1,5 +1,5 @@
 <?php
-    // Check if a session cookie exists before starting the session
+    //Megnézzük hogy a session el van-e indítva és ha nincs akkor elindítjuk.
     if (session_status() == PHP_SESSION_NONE && isset($_COOKIE[session_name()])) {
         session_start();
     }
@@ -76,5 +76,32 @@
               </script>";
         // Unset the just_logged_in flag so the modal doesn't show on subsequent page loads
         unset($_SESSION['just_logged_in']);
+    }
+?>
+
+<!--Kijelentkezés utáni modalhoz bootstrap-->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Kijelentkezés sikeres</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Sikeres kijelentkezés!
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+        </div>
+        </div>
+    </div>
+</div>
+<?php
+    //Megjeleníti a modal-t ha a felhasználó kijelentkezett
+    if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
+        echo "<script>
+                var myModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+                myModal.show();
+              </script>";
     }
 ?>

@@ -25,7 +25,7 @@
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
                 $errors = array();
-
+                //Hibaüzenetek
                 if(empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)){
                    array_push($errors,"Az összes mező kitöltése kötelező!");
                 }
@@ -38,7 +38,9 @@
                 if($password !== $passwordRepeat){
                     array_push($errors,"A jelszavak nem egyeznek!");
                 }
+
                 require_once 'db_connection.php';
+                //Ellenőrzi, hogy van-e már ilyen e-mail cím az adatbázisban
                 $sql = "SELECT * FROM felhasznalok WHERE email = '$email'";
                 $result = mysqli_query($conn, $sql);
                 $rowCount = mysqli_num_rows($result);
@@ -51,6 +53,7 @@
                         echo "<div class='alert alert-danger'>" .$error. "</div>";
                     }  
                 }else{
+                    //Ha nincs hiba, akkor regisztrálja az adatokat
                     $sql = "INSERT INTO felhasznalok (full_name, email, password) VALUES (?, ?, ?)";
                     $stmt = mysqli_stmt_init($conn);
                     $prepareSmt = mysqli_stmt_prepare($stmt, $sql);
