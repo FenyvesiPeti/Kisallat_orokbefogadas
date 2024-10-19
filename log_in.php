@@ -16,12 +16,42 @@
             <input type="checkbox" id="check">
             <div class="login form">
                 <header>Bejelentkezés</header>
+                <?php
+                if(isset($_POST["login"])){
+                    // Check if a session is already started before calling session_start()
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start(); // Start session only when login is attempted
+                    }
+                    $email = $_POST["email"];
+                    $password = $_POST["password"];
+                    require_once 'db_connection.php';
+                    $sql = "SELECT * FROM felhasznalok WHERE email = ?";
+                    $stmt = mysqli_stmt_init($conn);
+                    if(mysqli_stmt_prepare($stmt, $sql)){
+                        mysqli_stmt_bind_param($stmt, "s", $email);
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+                        $user = mysqli_fetch_assoc($result);
+                        if($user){
+                            if(password_verify($password, $user["password"])){
+                                $_SESSION["user"] = $user['id']; // Set session variable
+                                $_SESSION["full_name"] = $user['full_name']; // Store full name in session
+                                $_SESSION['just_logged_in'] = true; // Set flag for just logged in
+                                header("Location: index.php");
+                                die();
+                            }else{
+                                echo "<div class='alert alert-danger'>Hibás jelszó!</div>";
+                            }   
+                        }else{
+                            echo "<div class='alert alert-danger'>Az E-mail nem egyezik!</div>";
+                        }
+                    }
+                }
+                ?>
                 <form method="POST" action="log_in.php">
-                    <input type="text" placeholder="Adja meg a felhasználónevét">
-                    <input type="text" placeholder="Adja meg az e-mailt">
-                    <input type="password" placeholder="Adja meg a jelszavát">
-                    <!--<a href="#">Forgot password?</a>-->
-                    <input type="button" class="button" value="Bejelentkezés">
+                    <input type="email" name="email" placeholder="Adja meg az e-mailt">
+                    <input type="password" name="password" placeholder="Adja meg a jelszavát">
+                    <input type="submit" name="login" class="button" value="Bejelentkezés">
                 </form>
                 <div class="signup">
                     <span class="signup">Nincs fiókja?
@@ -33,15 +63,5 @@
     <footer>
         <?php include 'footer.php'; ?>
     </footer>
-    <?php
-    //TESZT ha a "Bejelentkezés" oldalról bármelyik linkre/gombra 
-    //kattintasz a header-ben akkor bejelentkeztet egy tesztfelhasználóba
-
-    // Szimuláljuk, hogy a felhasználó be van jelentkezve
-    // Ha valós bejelentkezés lenne, ez az adatbázisból jönne.
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = "TesztFelhasználó";
-    $_SESSION['user_id'] = 1;
-    ?>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +15,61 @@
         <main class="flex-grow-1">
         <div class="registration-style form">
             <header>Regisztráció</header>
-            <form action="#">
-                <input type="text" placeholder="Adja meg a felhasználónevét">
-                <input type="text" placeholder="Adja meg az e-mailt">
-                <input type="password" placeholder="Adja meg a jelszavát">
-                <input type="password" placeholder="Erősítse meg a jelszavát">
-                <input type="button" class="button" value="Regisztráció">
+            <?php
+             if(isset($_POST["submit"])){
+                $fullName = $_POST["full_name"];
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+                $passwordRepeat = $_POST["repeat_password"];
+
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+                $errors = array();
+
+                if(empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)){
+                   array_push($errors,"Az összes mező kitöltése kötelező!");
+                }
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL) ){
+                    array_push($errors,"Az e-mail cím formátuma nem megfelelő!");
+                }
+                if(strlen($password) < 8){
+                    array_push($errors,"A jelszónak legalább 8 karakter hosszúnak kell lennie!");
+                }
+                if($password !== $passwordRepeat){
+                    array_push($errors,"A jelszavak nem egyeznek!");
+                }
+                require_once 'db_connection.php';
+                $sql = "SELECT * FROM felhasznalok WHERE email = '$email'";
+                $result = mysqli_query($conn, $sql);
+                $rowCount = mysqli_num_rows($result);
+                if($rowCount > 0){
+                    array_push($errors,"Ez az e-mail cím már foglalt!");                   
+                }
+
+                if(count($errors) > 0){
+                    foreach($errors as $error){
+                        echo "<div class='alert alert-danger'>" .$error. "</div>";
+                    }  
+                }else{
+                    $sql = "INSERT INTO felhasznalok (full_name, email, password) VALUES (?, ?, ?)";
+                    $stmt = mysqli_stmt_init($conn);
+                    $prepareSmt = mysqli_stmt_prepare($stmt, $sql);
+                    if($prepareSmt){
+                        mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
+                        mysqli_stmt_execute($stmt);
+                        echo "<div class='alert alert-success'>Sikeres regisztráció!</div>";
+                    }else{
+                        die("Valami hiba történt: ".mysqli_error($conn));
+                    }
+                }
+            }
+            ?>
+            <form method="POST" action="sign_up.php">
+                <input type="text" name="full_name" placeholder="Teljes neve:" >
+                <input type="email" name="email" placeholder="E-mail:" >
+                <input type="password" name="password" placeholder="Jelszó:" >
+                <input type="password" name="repeat_password" placeholder="Jelszó újra:">
+                <input type="submit" class="button" name="submit" value="Regisztráció">
             </form>
             <div class="signup">
                 <span class="signup">Van már fiókja?

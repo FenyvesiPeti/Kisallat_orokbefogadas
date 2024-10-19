@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-md-2 col-sm-12">
                                 <p class="mb-0">Faj</p>
                                 <ul role="listbox">
                                     <li role="option">
@@ -38,7 +38,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-md-2 col-sm-12">
                                 <p class="mb-0">Ivar</p>
                                 <ul role="listbox">
                                     <li role="option">
@@ -50,7 +50,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-md-2 col-sm-12">
                                 <p class="mb-0">Méret</p>
                                 <ul role="listbox">
                                     <li role="option">
@@ -65,7 +65,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-md-2 col-sm-12">
                                 <!--<p>Kor</p>-->
                                 <div>
                                     <p class="ps-0">Évtől</p>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-2">
+                            <div class="col-md-2 col-sm-12">
                                 <div>
                                     <p class="ps-0">Évig</p>
                                     <input type="text" name="form" class="form-control-age" placeholder="25">
@@ -83,7 +83,7 @@
                     </fieldset>
                 </div>
                 <!--Jobb oldali rész -->
-                <div class="col-2 d-flex flex-column justify-content-center align-items-center">
+                <div class="col-md-2 d-flex flex-column justify-content-center align-items-center col-sm-12">
                     <input id="Form_Adaption_action_doSearch" class="mb-2 action-button" type="submit" name="action_doSearch" value="Szűrés">
                     <a class="resetfields" href="#">Szűrés törlése</a>
                 </div>
@@ -93,14 +93,14 @@
         <!--Állatok doboza -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3 animal-box">
+                <div class="col-md-3 col-sm-12 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
 
                     <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['user'])): ?>
                         <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
                         <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
                     <?php else: ?>
@@ -109,14 +109,14 @@
                     <?php endif; ?>
 
                 </div>
-                <div class="col-3 animal-box">
+                <div class="col-md-3 col-sm-12 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
 
                     <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['user'])): ?>
                         <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
                         <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
                     <?php else: ?>
@@ -125,14 +125,14 @@
                     <?php endif; ?>
 
                 </div>
-                <div class="col-3 animal-box">
+                <div class="col-md-3 col-sm-12 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
 
                     <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['user'])): ?>
                         <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
                         <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
                     <?php else: ?>
@@ -141,14 +141,14 @@
                     <?php endif; ?>
 
                 </div>
-                <div class="col-3 animal-box">
+                <div class="col-md-3 col-sm-12 animal-box">
                     <img src="img/xdd.jpg" alt="Állat neve"> 
                     <h3>Borzi</h3>
                     <p>Kor: x év</p>
                     <p>Neme: kan</p>
 
                     <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['user'])): ?>
                         <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
                         <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
                     <?php else: ?>

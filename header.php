@@ -1,14 +1,9 @@
 <?php
-
-session_start(); // Session indítása
-
-// Csak akkor állítja be a tesztfelhasználót, ha még nincs bejelentkezve
-if (!isset($_SESSION['user'])) {
-    // Tesztfelhasználó beállítása
-    $_SESSION['user'] = 'tesztfelhasznalo';
-}
-?>
-
+    // Check if a session cookie exists before starting the session
+    if (session_status() == PHP_SESSION_NONE && isset($_COOKIE[session_name()])) {
+        session_start();
+    }
+?>   
 <header class="container-fluid site-header fixed-top mt-3">
     <div class="d-flex justify-content-between align-items-center">
         <div class="col-md-6 d-flex align-items-center">
@@ -25,13 +20,13 @@ if (!isset($_SESSION['user'])) {
                 <div class="col text-end">
 
                     <!--Ellenőrzük hogy a felhasználó bevan-e jelentkezve.-->
-                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                    <?php if(isset($_SESSION['user'])): ?>
 
                         <!--Ha igen akkor a 2 gomb megváltozik-->
                         <a href="upload_animal.php" class="btn btn-success">Állat feltöltés</a> 
                         <div class="dropdown d-inline-block">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['username']; ?>
+                                <?php echo $_SESSION['full_name']; //A felhasználó nevét írjuk ki a gombra.?>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="logout.php">Kijelentkezés</a></li>
@@ -53,3 +48,33 @@ if (!isset($_SESSION['user'])) {
 <!--Dropdon menühoz bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<!--Bejelentkezés utáni modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bejelentkezés sikeres</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Sikeresen bejelentkezés! 
+            Most már megnézheti örökbefogadható állatokat és akár fel is tölthet a weboldalra.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+        </div>
+        </div>
+    </div>
+</div>
+<?php
+    // Show the modal if the user has just logged in
+    if (isset($_SESSION['user']) && isset($_SESSION['just_logged_in'])) {
+        echo "<script>
+                var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                myModal.show();
+              </script>";
+        // Unset the just_logged_in flag so the modal doesn't show on subsequent page loads
+        unset($_SESSION['just_logged_in']);
+    }
+?>

@@ -1,0 +1,13 @@
+<?php
+
+$hostName = "localhost";
+$dbUser = "root";
+$dbPassword = "";
+$dbName = "allatorokbefogado";
+$conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
+
+if(!$conn){
+    die("Valami hiba történt: ".mysqli_connect_error());
+}
+
+?>
