@@ -48,41 +48,6 @@ a:hover{
   background-color: rgb(226, 0, 0) !important;
   border-color: rgb(226, 0, 0) !important;
 }
-/*.sign-in, .registration{
-    height: 30px;
-    color: #0f1111;
-    font-family: "Amazon Ember",sans-serif;
-    line-height: 25px;
-    text-decoration: none;
-    background-color: #fff;
-    padding: 3px 7px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #000000;
-    border-radius: 2px;
-    box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px ;
-    font-size: 106%;
-    font-weight: 500;
-    display: inline-block;
-    margin-top: 5px;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-.sign-in:hover, .registration:hover{
-  box-shadow: rgba(159, 161, 161, 0.374) 0 3px 6px ;
-}
-.sign-in:hover{
-  background-color: #dfdfdf;
-}
-.registration{
-    background-color: red;
-}
-.registration:hover{
-  background-color: crimson;
-}
-.sign-in > a:hover{
-    text-decoration: none;
-    color:#009579;
-}*/
 .other-sites > a{
     line-height: 30px;
     text-decoration: none;
@@ -127,7 +92,6 @@ a:hover{
 
 /*Fotózási tippek + kapcsolat oldal*/
 .fotozastippek-style, .kapcsolat-style{
-  max-width: 60% !important;
   padding-top: 15px !important;
   margin-top: 70px !important;
   background-color: #ffffff;
@@ -252,6 +216,7 @@ fieldset > h2, h3, p, label{
 
 .animal-box p {
  padding: 0 !important;
+ margin: 1px !important;
  font-family: Arial, Helvetica, sans-serif;
  font-size: 17.5px;
 }
@@ -367,4 +332,46 @@ fieldset > h2, h3, p, label{
 }
 .signup label:hover{
   text-decoration: underline;
+}
+
+/*Állat feltölő oldal*/
+.upload_animal{
+  padding-top: 15px !important;
+  margin-top: 20px !important;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.form_upload_animal label{
+  margin-top: 10px;
+}
+.form_upload_animal input{
+  max-width: 200px;
+}
+.form_upload_animal select{
+  max-width: 200px;
+}
+.form_upload_animal small{
+  display: inline-block !important;
+  max-width: 400px !important;
+}
+.custom-textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+.custom-file-input {
+  width: 100%;
+  max-width: 280px;
+}
+.form_upload_animal .animal-box{
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #eef4f5;
+  width: 400px;
+  text-align: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
