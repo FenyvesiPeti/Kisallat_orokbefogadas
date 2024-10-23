@@ -26,7 +26,7 @@
                         <a href="upload_animal.php" class="btn btn-success">Állat feltöltés</a> 
                         <div class="dropdown d-inline-block">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $_SESSION['full_name']; //A felhasználó nevét írjuk ki a gombra.?>
+                                <i class="fa-regular fa-user"></i><?php echo $_SESSION['full_name']; //A felhasználó nevét írjuk ki a gombra.?>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="logout.php">Kijelentkezés</a></li>
@@ -45,9 +45,11 @@
     </div>
 </header>
 
-<!--Dropdon menühoz bootstrap-->
+<!--Dropdon menühoz bootstrap + fontawesome + errorhandling.js-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/d16c0b5a00.js" crossorigin="anonymous"></script>
+<script src="errorhandling.js"></script>
 
 <!--Bejelentkezés utáni modal-->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
