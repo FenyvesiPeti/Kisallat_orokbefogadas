@@ -51,8 +51,10 @@
                 }
                 ?>
                 <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>">
-                    <input type="email" name="email" placeholder="Adja meg az e-mailt">
-                    <input type="password" name="password" placeholder="Adja meg a jelszavát">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" placeholder="example@gmail.com">
+                    <label for="password">Jelszó:</label>
+                    <input type="password" name="password" placeholder="Minimum 8 karakter">
                     <input type="submit" name="login" class="button" value="Bejelentkezés">
                 </form>
                 <div class="signup">

@@ -66,7 +66,6 @@
                             </div>
 
                             <div class="col-md-2 col-sm-12">
-                                <!--<p>Kor</p>-->
                                 <div>
                                     <p class="ps-0">Évtől</p>
                                     <input type="text" name="form" class="form-control-age" placeholder="0" >
@@ -89,76 +88,52 @@
                 </div>
             </div>
         </div>
+        <!--Állatok lekérdezése az adatbázisból. -->
+        <?php
+            require_once 'db_connection.php';
 
-        <!--Állatok doboza -->
+            // Csak az állatok nevét, életkorát, nemét és képét kérjük le, mert itt csak ezeket jelenítjük meg
+            $sql = "SELECT id, animal_name, animal_age, animal_gender, animal_image FROM animals";
+
+            // Tömböt használunk az állatok tárolására, mert tudjuk kezelni hogy hova kerüljenek az újabbak
+            $animals = [];
+            if ($result = $conn->query($sql)) {
+                while ($row = $result->fetch_assoc()) {
+                    // Az állatokat egy tömbbe helyezzük, viszont array_unshift-tel az elejére tesszük, hogy az újabbakat az elején lássuk
+                    array_unshift($animals, $row);
+                }
+            }else{
+                echo"<div class='alert alert-danger'>Hiba az adatbázis lekérdezés során, vagy nincs az adatbázisban örökbefogható állat.</div>";
+            }
+            // Bezárjuk a kapcsolatot, hogy ne kérje le újra és újra az adatokat
+            $conn->close();
+        ?>
+        <!--Állatok megjelenítése az adatbázisból. -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 col-sm-12 animal-box">
-                    <img src="img/xdd.jpg" alt="Állat neve"> 
-                    <h3>Borzi</h3>
-                    <p>Kor: x év</p>
-                    <p>Neme: kan</p>
+                <?php foreach ($animals as $animal): ?>
+                    <div class="col-md-3 col-sm-12 animal-box">
+                        <?php
+                        // Bináris adat base64 formátumba konvertálása
+                        $imageData = base64_encode($animal['animal_image']);
+                        ?>
+                        <!-- Az állatok képe, neve, életkora és neme (a képet muszáj volt base 64-ba encodeolni az adatbázisba így tudjuk elmenteni)-->
+                        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>">
+                        <h3><?= htmlspecialchars($animal['animal_name']) ?></h3>
+                        <p><?= htmlspecialchars($animal['animal_age']) ?> éves</p>
+                        <p><?= htmlspecialchars($animal['animal_gender']) ?></p>
 
-                    <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
-                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
-                    <?php else: ?>
-                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
-                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
-                    <?php endif; ?>
-
-                </div>
-                <div class="col-md-3 col-sm-12 animal-box">
-                    <img src="img/xdd.jpg" alt="Állat neve"> 
-                    <h3>Borzi</h3>
-                    <p>Kor: x év</p>
-                    <p>Neme: kan</p>
-
-                    <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
-                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
-                    <?php else: ?>
-                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
-                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
-                    <?php endif; ?>
-
-                </div>
-                <div class="col-md-3 col-sm-12 animal-box">
-                    <img src="img/xdd.jpg" alt="Állat neve"> 
-                    <h3>Borzi</h3>
-                    <p>Kor: x év</p>
-                    <p>Neme: kan</p>
-
-                    <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
-                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
-                    <?php else: ?>
-                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
-                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
-                    <?php endif; ?>
-
-                </div>
-                <div class="col-md-3 col-sm-12 animal-box">
-                    <img src="img/xdd.jpg" alt="Állat neve"> 
-                    <h3>Borzi</h3>
-                    <p>Kor: x év</p>
-                    <p>Neme: kan</p>
-
-                    <!--Megnézzük hogy bevan-e jelenzkezve-->
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <!--Ha igen akkor egy olyan gomb van ami átdobja az állat bővebb információs oldalra-->
-                        <a href="animal_details.php?id=<?= $animal_id ?>" class="adopt-button">További részletek</a>
-                    <?php else: ?>
-                        <!--Ha nem akkor egy olyan gomb ami a log_in.php ra dobja-->
-                        <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
-                    <?php endif; ?>
-                
-                </div>
+                        <!-- Az állatok részleteinek megtekintése, attól függően hogy a felhasználó bevan-e jelentkezve -->
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <a href="animal_details.php?id=<?= htmlspecialchars($animal['id']) ?>" class="adopt-button">További részletek</a>
+                        <?php else: ?>
+                            <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
+    </div>
     </main>
     <footer>
         <?php include 'footer.php'; ?>

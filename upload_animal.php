@@ -68,6 +68,7 @@
                                 $stmt = mysqli_stmt_init($conn);
                                 $prepareSmt = mysqli_stmt_prepare($stmt, $sql);
                                 if($prepareSmt){
+                                    //Minden string (s) kivéve az életkor (i) és a kép (b)
                                     mysqli_stmt_bind_param($stmt, "sssssssss", $animal_name, $animal_age, $animal_type, $animal_gender, $animal_size, $animal_breed, $animal_description, $animal_image, $created_at);
                                     mysqli_stmt_execute($stmt);
                                     echo "<div class='alert alert-success'>Sikeres feltöltés!</div>";
@@ -145,6 +146,7 @@
                         <label for="animal_image">Kép:</label>
                         <input type="file" class="form-control custom-file-input" id="animal_image" name="animal_image">
                     </div>
+                    <!--TODO: Ide lehet kéne egy mező amibe meglehet adni a telefonszámot, amit nem muszáj megadni.-->
                     <button type="submit" name="submit" class="btn btn-primary mt-3 mb-3">Feltöltés</button>
                 </form>
             </div>

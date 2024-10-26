@@ -27,7 +27,7 @@
 
                     $errors = array();
                     //Hibaüzenetek
-                    if(empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)){
+                    if(empty($fullName) AND empty($email) AND empty($password) AND empty($passwordRepeat)){
                     array_push($errors,"Az összes mező kitöltése kötelező!");
                     }
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL) ){
@@ -70,10 +70,14 @@
             }
             ?>
             <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>">
-                <input type="text" name="full_name" placeholder="Teljes neve:" >
-                <input type="email" name="email" placeholder="E-mail:" >
-                <input type="password" name="password" placeholder="Jelszó:" >
-                <input type="password" name="repeat_password" placeholder="Jelszó újra:">
+                <label for="full_name">Teljes név:</label>
+                <input type="text" name="full_name" placeholder="Teszt Elek">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" placeholder="example@gmail.com" >
+                <label for="password">Jelszó:</label>
+                <input type="password" name="password" placeholder="Minimum 8 karakter" >
+                <label for="repeat_password">Jelszó újra:</label>
+                <input type="password" name="repeat_password" placeholder="Minimum 8 karatker">
                 <input type="submit" class="button" name="submit" value="Regisztráció">
             </form>
             <div class="signup">

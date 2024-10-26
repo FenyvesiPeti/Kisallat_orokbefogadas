@@ -214,6 +214,7 @@ fieldset > h2, h3, p, label{
   align-items: center;
   width: 300px;
   text-align: center;
+  margin-bottom: 0px !important;
 }
 
 .animal-box img {
