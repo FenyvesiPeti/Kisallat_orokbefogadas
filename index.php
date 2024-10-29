@@ -118,10 +118,18 @@
                         $imageData = base64_encode($animal['animal_image']);
                         ?>
                         <!-- Az állatok képe, neve, életkora és neme (a képet muszáj volt base 64-ba encodeolni az adatbázisba így tudjuk elmenteni)-->
-                        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>">
+                        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="Kép betöltése sikertelen <?= htmlspecialchars($animal['animal_name']) ?>" class="animal-box-img">
                         <h3><?= htmlspecialchars($animal['animal_name']) ?></h3>
-                        <p><?= htmlspecialchars($animal['animal_age']) ?> éves</p>
-                        <p><?= htmlspecialchars($animal['animal_gender']) ?></p>
+                        <p><i class="far fa-calendar-alt me-1"></i><?= htmlspecialchars($animal['animal_age']) ?> éves</p>
+                        <p>
+                            <!-- Megnézzük hogy milyen nemű és az alapján teszünk hozzá ikont -->
+                            <?php if ($animal['animal_gender'] == 'hím'): ?>
+                                <i class="fa-solid fa-mars"></i>
+                            <?php elseif ($animal['animal_gender'] == 'nőstény'): ?>
+                                <i class="fa-solid fa-venus"></i>
+                            <?php endif; ?>
+                            <?= htmlspecialchars($animal['animal_gender']) ?>
+                        </p>
 
                         <!-- Az állatok részleteinek megtekintése, attól függően hogy a felhasználó bevan-e jelentkezve -->
                         <?php if (isset($_SESSION['user'])): ?>

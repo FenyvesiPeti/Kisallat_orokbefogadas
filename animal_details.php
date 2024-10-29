@@ -33,26 +33,65 @@ $conn->close();
     <header>
         <?php include 'header.php'; ?>
     </header>
-    <main class="container-fluid">
-        <!-- 
-        Ugyanúgy encodeoljuk a képet, megjlenítjük az állat adatait
-         
-        -->
-        <?php $imageData = base64_encode($animal['animal_image']); ?>
-        <h1>A <?= htmlspecialchars($animal['animal_name']), htmlspecialchars($animal['id'])?> állat oldala.</h1>
-        <p><?= htmlspecialchars($animal['animal_age']) ?></p>
-        <p><?= htmlspecialchars($animal['animal_type']) ?></p>
-        <p><?= htmlspecialchars($animal['animal_gender']) ?></p>
-        <p><?= htmlspecialchars($animal['animal_size']) ?></p>
-        <p><?= htmlspecialchars($animal['animal_breed']) ?></p>
-        <p><?= htmlspecialchars($animal['animal_description']) ?></p>
-        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>">
-        <p><?= htmlspecialchars($animal['created_at']) ?></p>
-
-        <form>
-            <label for="animal_message_to_creator">Üzenet küldés a feltöltőnek:</label>
-            <textarea class="form-control custom-textarea" id="animal_message_to_creator" name="animal_message_to_creator" rows="5" placeholder="Itt tud üzenni az állatnak a feltöltőjének."></textarea>
-        </form>
+    <main class="flex-grow-1">
+        <div class="container-fluid animal-detail-style">
+            <div class="row">
+                <div class="animal-detail-box col-12">
+                    <div class="animal-detail-top">
+                        <h1 class="text-center"><?= htmlspecialchars($animal['animal_name']), htmlspecialchars($animal['id'])?></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <!--Ugyanúgy encodeoljuk a képet, megjlenítjük az állat adatait-->
+                    <?php $imageData = base64_encode($animal['animal_image']); ?>
+                    <div class="animal-detail-img">
+                        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>" class="img-fluid mx-auto d-block">
+                    </div>
+                </div>
+            <div class="row">
+                <div class="animal-detail-box col-12">
+                    <div class="animal-detail-top">
+                        <p><strong>Adatok</strong></p>
+                    </div>
+                    <div class="animal-detail-bottom">
+                        <p><strong>Életkora:</strong> <?= htmlspecialchars($animal['animal_age']) ?> éves</p>
+                        <p><strong>Az állat:</strong> <?= htmlspecialchars($animal['animal_type']) ?></p>
+                        <p><strong>Ivara:</strong> <?= htmlspecialchars($animal['animal_gender']) ?></p>
+                        <p><strong>Méret:</strong> <?= htmlspecialchars($animal['animal_size']) ?></p>
+                        <p><strong><?= htmlspecialchars(ucfirst($animal['animal_type'])) ?> fajtája:</strong> <?= htmlspecialchars($animal['animal_breed']) ?></p>
+                        <p><strong>Gazdit keres óta: </strong> <?= htmlspecialchars($animal['created_at']) ?> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="animal-detail-box col-12">
+                    <div class="animal-detail-top">
+                        <p><strong>Leírás</strong></p>
+                    </div>
+                    <div class="animal-detail-bottom">
+                        <p><?= htmlspecialchars($animal['animal_description']) ?></p>
+                    </div>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="animal-detail-box col-12">
+                    <div class="animal-detail-top">
+                        <p><strong>Üzenet küldés a feltöltőnek:</strong></p>
+                    </div>
+                    <div class="animal-detail-bottom">
+                        <form>
+                            <textarea class="form-control custom-textarea" id="animal_message_to_creator" name="animal_message_to_creator" rows="5" placeholder="Itt tud üzenni az állat jelenlegi gazdájának."></textarea>
+                        </form>
+                    </div>   
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <button type="submit" class="btn btn-secondary animal-detail-button">Üzenet küldése</button>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <?php include 'footer.php'; ?>

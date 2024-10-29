@@ -147,13 +147,15 @@
                         <input type="file" class="form-control custom-file-input" id="animal_image" name="animal_image">
                     </div>
                     <!--TODO: Ide lehet kéne egy mező amibe meglehet adni a telefonszámot, amit nem muszáj megadni.-->
-                    <button type="submit" name="submit" class="btn btn-primary mt-3 mb-3">Feltöltés</button>
+                    <button type="submit" name="submit" class="btn btn-success mt-3 mb-3">Feltöltés</button>
                 </form>
             </div>
         </main>
     <footer>
         <?php include 'footer.php'; ?>
     </footer>
+    <!--Teszt gomb amivel feltöltünk az adatbázisba 15 állatot (jobb felül van)-->
+    <div class="test-button-for-upload"><button>TESZT</button></div>
 </body>
 </html>
 
