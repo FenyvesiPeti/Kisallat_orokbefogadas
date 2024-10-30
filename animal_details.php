@@ -24,7 +24,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Az állat nevét adjuk a címnek -->
+    <!-- Az állat nevét adjuk az oldal címnek -->
     <title><?= htmlspecialchars($animal['animal_name']) ?> Állat részletei</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -35,20 +35,23 @@ $conn->close();
     </header>
     <main class="flex-grow-1">
         <div class="container-fluid animal-detail-style">
+            <!--Állat neve-->
             <div class="row">
                 <div class="animal-detail-box col-12">
                     <div class="animal-detail-top">
-                        <h1 class="text-center"><?= htmlspecialchars($animal['animal_name']), htmlspecialchars($animal['id'])?></h1>
+                        <h1 class="text-center"><?= htmlspecialchars($animal['animal_name'])?></h1>
                     </div>
                 </div>
             </div>
+            <!--Állat képe-->
             <div class="row">
-                    <!--Ugyanúgy encodeoljuk a képet, megjlenítjük az állat adatait-->
-                    <?php $imageData = base64_encode($animal['animal_image']); ?>
-                    <div class="animal-detail-img">
-                        <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>" class="img-fluid mx-auto d-block">
-                    </div>
+                <!--Ugyanúgy encodeoljuk a képet mint máshol, megjlenítjük az állat adatait-->
+                <?php $imageData = base64_encode($animal['animal_image']); ?>
+                <div class="animal-detail-img">
+                    <img src="data:image/jpeg;base64,<?= $imageData ?>" alt="<?= htmlspecialchars($animal['animal_name']) ?>" class="img-fluid mx-auto d-block">
                 </div>
+            </div>
+            <!--Állat adatok rész-->
             <div class="row">
                 <div class="animal-detail-box col-12">
                     <div class="animal-detail-top">
@@ -64,6 +67,7 @@ $conn->close();
                     </div>
                 </div>
             </div>
+            <!--Állat leírása rész-->
             <div class="row">
                 <div class="animal-detail-box col-12">
                     <div class="animal-detail-top">

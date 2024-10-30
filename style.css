@@ -1,10 +1,11 @@
 body, main{
   padding-top: 60px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
 }
 
 /*Háttérkép*/
 body {
-  background-color: #bcbfcc !important;
   position: relative;
 }
 body::before {
@@ -20,7 +21,7 @@ body::before {
   opacity: 0.3; 
   z-index: -1; 
 }
-
+/*Néhány alap beállítás*/
 a{
   color: #000000 !important;
   text-decoration: none;
@@ -195,13 +196,21 @@ fieldset > h2, h3, p, label{
   padding: 2px 44px;
 }
 .action-button:hover{
+  transition: 0.3s;
   color:#fff;
-  background-color: #6a135c;
+  /*background-color: #6a135c;*/
+  background-color: #157347;
 }
 .resetfields{
+  text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 500;
+}
+.resetfields:hover{
+  color: #157347 !important;
+  text-decoration: solid;
+  text-decoration: underline solid #006653;
 }
 
 /*Állatok "doboza"*/
@@ -215,7 +224,7 @@ fieldset > h2, h3, p, label{
   width: 300px;
   text-align: center;
   margin-bottom: 0px !important;
-  border: 1px solid #dddddd6c;
+  border: 1px solid #dddddd9d;
 }
 .animal-box-img{
   height: 100%;
@@ -255,7 +264,8 @@ fieldset > h2, h3, p, label{
 }
 
 .animal-box .adopt-button:hover {
-  background: #6a135c;
+  /*background: #6a135c;*/
+  background: #157347;
   color: #fff !important;
 }
 
@@ -407,11 +417,7 @@ fieldset > h2, h3, p, label{
   max-height: 300px;
   border-radius: 10px;
 }
-.test-button-for-upload{
-  position: absolute;
-  right: 0;
-  top:0;
-}
+
 /*Állat részlető oldal*/
 .animal-detail-style{
   max-width: 80%;
@@ -422,10 +428,22 @@ fieldset > h2, h3, p, label{
   border: 2px solid #353e46;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
-.animal-detail-img{
+.animal-detail-img {
   min-height: 300px;
   max-height: 650px;
+  overflow: hidden; 
 }
+
+.animal-detail-img img {
+  width: 100%;
+  height: auto;
+  max-width: 80%;
+  max-height: 650px;
+  object-fit: cover; 
+  border: 3px solid #ddd;
+  border-radius: 10px;
+}
+
 .animal-detail-box{
   width: 100%;
   max-width: 95% !important;
@@ -452,4 +470,16 @@ fieldset > h2, h3, p, label{
 .animal-detail-button{
   margin-left: 20px;
   margin-bottom: 15px;
+}
+
+/*TEST gomb*/
+.test-button-for-upload{
+  position: absolute;
+  right: 0;
+  top:0;
+  opacity: 0.3;
+}
+.test-button-for-upload:hover{
+  transition: 1s;
+  opacity: 1;
 }

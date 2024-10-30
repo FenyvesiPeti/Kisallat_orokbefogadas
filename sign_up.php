@@ -23,6 +23,7 @@
                     $password = $_POST["password"];
                     $passwordRepeat = $_POST["repeat_password"];
 
+                    //Jelszó hashelése
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
                     $errors = array();
