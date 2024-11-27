@@ -4,6 +4,33 @@ require_once 'db_connection.php';
 // ID paraméter lekérése az URL-ből
 $id = $_GET['id'];
 
+// Állat törlése, ha a törlés gombra lett kattintva
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_animal'])) {
+    $animalIdToDelete = intval($_POST['delete_animal_id']);
+
+    // SQL törlési utasítás
+    $deleteSql = "DELETE FROM animals WHERE id = ?";
+    $stmt = $conn->prepare($deleteSql);
+    $stmt->bind_param("i", $animalIdToDelete);
+
+    if ($stmt->execute()) {
+        echo "<script>
+                alert('Az állat sikeresen törölve lett!');
+                window.location.href = 'index.php';
+              </script>";
+    } else {
+        // Hiba esetén hibaüzenet
+        echo "<script>
+                alert('Hiba történt az állat törlése során!');
+                window.history.back();
+              </script>";
+    }
+    $stmt->close();
+    $conn->close();
+    exit;
+}
+	
+
 // Lekérdezés az adott állat részletes adatainak lekéréséhez
 $sql = "SELECT * FROM animals WHERE id = $id";
 $result = $conn->query($sql);
@@ -92,13 +119,18 @@ $conn->close();
             </div>
             <div class="row">
                 <div>
-                    <button type="submit" class="btn btn-secondary animal-detail-button">Üzenet küldése</button>
+				<button type="submit" class="btn btn-secondary animal-detail-button">Üzenet küldése</button>
+				<form method="post" style="display:inline;">
+				<input type="hidden" name="delete_animal_id" value="<?= htmlspecialchars($animal['id']) ?>">
+            <button type="submit" name="delete_animal" class="btn btn-danger animal-detail-button">Törlés</button>
+        </form>
                 </div>
             </div>
         </div>
     </main>
     <footer>
         <?php include 'footer.php'; ?>
-    </footer>    
+    </footer>
+    
 </body>
 </html> 

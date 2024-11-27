@@ -1,3 +1,12 @@
+<?php
+session_start(); // Munkamenet indítása
+
+// Ha már be van jelentkezve a felhasználó, irányítsuk át a főoldalra
+if (isset($_SESSION['user'])) {
+    header("Location: index.php"); // Átirányítás a főoldalra
+    exit(); // Megállítja a további kód futtatását
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
