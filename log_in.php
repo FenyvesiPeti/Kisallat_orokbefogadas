@@ -45,9 +45,9 @@ if (isset($_SESSION['user'])) {
                             $user = mysqli_fetch_assoc($result);
                             if($user){
                                 if(password_verify($password, $user["password"])){
-                                    $_SESSION["user"] = $user['id']; // Set session variable
-                                    $_SESSION["full_name"] = $user['full_name']; // Store full name in session
-                                    $_SESSION['just_logged_in'] = true; // Set flag for just logged in
+                                    $_SESSION["user"] = $user['id']; 
+                                    $_SESSION["full_name"] = $user['full_name']; 
+                                    $_SESSION['just_logged_in'] = true; 
                                     header("Location: index.php");
                                     die();
                                 }else{
