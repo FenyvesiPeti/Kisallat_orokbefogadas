@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_animal'])) {
     $conn->close();
     exit;
 }
-	
 
 // Lekérdezés az adott állat részletes adatainak lekéréséhez
 $sql = "SELECT * FROM animals WHERE id = $id";
@@ -120,10 +119,20 @@ $conn->close();
             <div class="row">
                 <div>
 				<button type="submit" class="btn btn-secondary animal-detail-button">Üzenet küldése</button>
-				<form method="post" style="display:inline;">
-				<input type="hidden" name="delete_animal_id" value="<?= htmlspecialchars($animal['id']) ?>">
-            <button type="submit" name="delete_animal" class="btn btn-danger animal-detail-button">Törlés</button>
-        </form>
+                <!--Állat törlés gomb, 
+                Megnézzük melyik felhasználó van belépve csak úgy jelenítjük meg a törlés gombot.-->
+                <?php
+                if(isset($_SESSION['user'])){
+                    $current_user_id = $_SESSION['user'];
+                    //Itt most a user id 2 lesz mert az az "admin" felhasználó
+                    $specific_user_id = 2;
+                }
+                if($current_user_id == $specific_user_id) {?>
+                    <form method="post" style="display:inline;">
+                        <input type="hidden" name="delete_animal_id" value="<?= htmlspecialchars($animal['id']) ?>">
+                        <button type="submit" name="delete_animal" class="btn btn-danger animal-detail-button">Törlés</button>
+                    </form>
+                <?php } ?>
                 </div>
             </div>
         </div>

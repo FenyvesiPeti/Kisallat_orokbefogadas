@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Okt 23. 10:16
+-- Létrehozás ideje: 2024. Nov 29. 10:44
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -36,7 +36,7 @@ CREATE TABLE `animals` (
   `animal_size` enum('kicsi','közepes','nagy') NOT NULL,
   `animal_breed` varchar(100) DEFAULT NULL,
   `animal_description` text NOT NULL,
-  `animal_image` MEDIUMBLOB NOT NULL,
+  `animal_image` mediumblob NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
@@ -52,6 +52,14 @@ CREATE TABLE `felhasznalok` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `felhasznalok`
+--
+
+INSERT INTO `felhasznalok` (`id`, `full_name`, `email`, `password`) VALUES
+(2, 'admin', 'admin@gmail.com', '$2y$10$xpDksqcmtvSmkmwJbB9lYu4SbnwlHkO/3ufhjBOTdkOna3eK98eZ2'),
+(3, 'test', 'test@gmail.com', '$2y$10$vGEuSFOmMfS/LqsGUonLuOc/kF7K6rDtaNa6iahLLqcM8wCZ6HtkG');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -77,13 +85,13 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

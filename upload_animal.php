@@ -270,9 +270,16 @@
                 </form>
             </div>
             <!--Teszt gomb amivel feltöltünk az adatbázisba 15 állatot (jobb felül van)-->
+            <?php if(isset($_SESSION['user'])){
+                    $current_user_id = $_SESSION['user'];
+                    //Itt most a user id 2 lesz mert az az "admin" felhasználó
+                    $specific_user_id = 2;
+                }
+                if($current_user_id == $specific_user_id) {?>
             <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>" enctype="multipart/form-data">
                 <div class="test-button-for-upload"><button type="submit" name="TEST_submit">Test</button></div>
             </form>
+            <?php } ?>
         </main>
     <footer>
         <?php include 'footer.php'; ?>
