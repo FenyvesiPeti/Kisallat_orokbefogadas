@@ -19,10 +19,11 @@
             <div class="row">
                 <!-- Bal oldali szűrési opciók -->
                 <div class="col-10">
+                    <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>">
                     <fieldset>
                         <h2>Keresés név szerint</h2>
                         <div class="mb-3 ms-4">
-                            <input id="Form_Adaption_Keywords" class="form-control" type="text" name="Keywords" placeholder="Pl. Bogáncs">
+                            <input id="Form_Adaption_Keywords" class="form-control" type="text" name="keywords" placeholder="Pl. Bogáncs">
                         </div>
 
                         <div class="row">
@@ -30,10 +31,10 @@
                                 <p class="mb-0">Faj</p>
                                 <ul role="listbox">
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="kutya"><label>kutya</label>
+                                        <input class="checkbox" type="checkbox" name="species[]" value="kutya"><label>kutya</label>
                                     </li>
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="macska"><label>macska</label>
+                                        <input class="checkbox" type="checkbox" name="species[]" value="macska"><label>macska</label>
                                     </li>
                                 </ul>
                             </div>
@@ -42,10 +43,10 @@
                                 <p class="mb-0">Ivar</p>
                                 <ul role="listbox">
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="hím"><label>hím</label>
+                                        <input class="checkbox" type="checkbox" name="gender[]" value="hím"><label>hím</label>
                                     </li>
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="nőstény"><label>nőstény</label>
+                                        <input class="checkbox" type="checkbox" name="gender[]" value="nőstény"><label>nőstény</label>
                                     </li>
                                 </ul>
                             </div>
@@ -54,13 +55,13 @@
                                 <p class="mb-0">Méret</p>
                                 <ul role="listbox">
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="kicsi"><label>kicsi</label>
+                                        <input class="checkbox" type="checkbox" name="size[]" value="kicsi"><label>kicsi</label>
                                     </li>
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="közepes"><label>közepes</label>
+                                        <input class="checkbox" type="checkbox" name="size[]" value="közepes"><label>közepes</label>
                                     </li>
                                     <li role="option">
-                                        <input id="" class="checkbox" type="checkbox" value="nagy"><label>nagy</label>
+                                        <input class="checkbox" type="checkbox" name="size[]" value="nagy"><label>nagy</label>
                                     </li>
                                 </ul>
                             </div>
@@ -68,14 +69,14 @@
                             <div class="col-md-2 col-sm-12">
                                 <div>
                                     <p class="ps-0">Évtől</p>
-                                    <input type="text" name="form" class="form-control-age" placeholder="0" >
+                                    <input type="number" name="age_from" class="form-control-age" placeholder="0">
                                 </div>
                             </div>
 
                             <div class="col-md-2 col-sm-12">
                                 <div>
                                     <p class="ps-0">Évig</p>
-                                    <input type="text" name="form" class="form-control-age" placeholder="25">
+                                    <input type="number" name="age_to" class="form-control-age" placeholder="25">
                                 </div>
                             </div>
                         </div>
@@ -84,30 +85,63 @@
                 <!--Jobb oldali rész -->
                 <div class="col-md-2 d-flex flex-column justify-content-center align-items-center col-sm-12">
                     <input id="Form_Adaption_action_doSearch" class="mb-2 action-button" type="submit" name="action_doSearch" value="Szűrés">
-                    <a class="resetfields" href="#">Szűrés törlése</a>
+                    <a class="resetfields" href="index.php">Szűrés törlése</a>
                 </div>
+            </form>
             </div>
         </div>
-        <!--Állatok lekérdezése az adatbázisból. -->
+
+        <!--Keresés, szűrés php -->
         <?php
-            require_once 'db_connection.php';
+        require_once 'db_connection.php';
 
-            // Csak az állatok nevét, életkorát, nemét és képét kérjük le, mert itt csak ezeket jelenítjük meg
-            $sql = "SELECT id, animal_name, animal_age, animal_gender, animal_image FROM animals";
+        // Alap SQL lekérdezés
+        $sql = "SELECT id, animal_name, animal_age,animal_type, animal_gender,animal_size,animal_breed,animal_description, animal_image FROM animals WHERE 1=1";
 
-            // Tömböt használunk az állatok tárolására, mert tudjuk kezelni hogy hova kerüljenek az újabbak
-            $animals = [];
-            if ($result = $conn->query($sql)) {
-                while ($row = $result->fetch_assoc()) {
-                    // Az állatokat egy tömbbe helyezzük, viszont array_unshift-tel az elejére tesszük, hogy az újabbakat az elején lássuk
-                    array_unshift($animals, $row);
-                }
-            }else{
-                echo"<div class='alert alert-danger'>Hiba az adatbázis lekérdezés során, vagy nincs az adatbázisban örökbefogható állat.</div>";
+        // Szűrési feltételek
+        if (!empty($_POST['keywords'])) {
+            $keywords = $conn->real_escape_string($_POST['keywords']);
+            $sql .= " AND animal_name LIKE '%$keywords%'";
+        }
+
+        if (!empty($_POST['species'])) {
+            $species = array_map([$conn, 'real_escape_string'], $_POST['species']);
+            $speciesList = "'" . implode("','", $species) . "'";
+            $sql .= " AND animal_type IN ($speciesList)";
+        }
+
+        if (!empty($_POST['gender'])) {
+            $gender = array_map([$conn, 'real_escape_string'], $_POST['gender']);
+            $genderList = "'" . implode("','", $gender) . "'";
+            $sql .= " AND animal_gender IN ($genderList)";
+        }
+        if (!empty($_POST['size'])) {
+            $size = array_map([$conn, 'real_escape_string'], $_POST['size']);
+            $sizeList = "'" . implode("','", $size) . "'";
+            $sql .= " AND animal_size IN ($sizeList)";
+        }
+
+        if (!empty($_POST['age_from'])) {
+            $ageFrom = (int)$_POST['age_from'];
+            $sql .= " AND animal_age >= $ageFrom";
+        }
+
+        if (!empty($_POST['age_to'])) {
+            $ageTo = (int)$_POST['age_to'];
+            $sql .= " AND animal_age <= $ageTo";
+        }
+
+        // Eredmények lekérése
+        $animals = [];
+        if ($result = $conn->query($sql)) {
+            while ($row = $result->fetch_assoc()) {
+                $animals[] = $row;
             }
-            // Bezárjuk a kapcsolatot, hogy ne kérje le újra és újra az adatokat
-            $conn->close();
+        } else {
+            echo "<div class='alert alert-danger'>Hiba az adatbázis lekérdezése során.</div>";
+        }
         ?>
+
         <!--Állatok megjelenítése az adatbázisból. -->
         <div class="container-fluid">
             <div class="row">
@@ -135,7 +169,7 @@
                         <?php if (isset($_SESSION['user'])): ?>
                             <a href="animal_details.php?id=<?= htmlspecialchars($animal['id']) ?>" class="adopt-button">További részletek</a>
                         <?php else: ?>
-                            <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be további információért</a>
+                            <a href="log_in.php" class="adopt-button">Kérjük jelentkezzen be!</a>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>

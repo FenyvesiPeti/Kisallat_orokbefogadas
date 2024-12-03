@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start(); // Munkamenet indítása
 
 // Ha már be van jelentkezve a felhasználó, irányítsuk át a főoldalra
@@ -49,7 +50,7 @@ if (isset($_SESSION['user'])) {
                                     $_SESSION["full_name"] = $user['full_name']; 
                                     $_SESSION['just_logged_in'] = true; 
                                     header("Location: index.php");
-                                    die();
+                                    exit();
                                 }else{
                                     echo "<div class='alert alert-danger'>Hibás jelszó!</div>";
                                 }   
@@ -59,6 +60,7 @@ if (isset($_SESSION['user'])) {
                         }
                     }
                 }
+                ob_end_flush();
                 ?>
                 <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"])?>">
                     <label for="email">E-mail:</label>

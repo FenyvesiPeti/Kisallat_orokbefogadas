@@ -21,13 +21,26 @@
             <p class="col-12">
             Amennyiben lakásban fotózol, érdemes egy homogén, egyszínű  hátteret választani, például egy takarót, plédet, nagyobb párnát. Ha lakáson kívül fotózod, próbáld meg fűben, vagy valami olyan közegben, ami akár jópofává, akár kedvesebbé teszi a képet. Használhatsz kellékeket is, kölykök például nagyon jól mutatnak fonott vesszőkosárban. 
             </p>
+
+            <img class="fotozasitippek-hatterfoto" src="img/hatterfoto.jpg" alt="Háttér fotózási tippek">
+
             <h2 class="row">Kompozíció:</h2>
             <p class="col-12">
                 Készíts többféle képet a háziállatról, közelit és egész alakosat is. Fontos hogy legyen közte olyan ahol látszanak a szemei, és belenéz a kamerába.
             </p>
+
+            <div class="image-gallery">
+                <img src="img/kompozicio-1.jpg" alt="Kompozíció példa 1">
+                <img src="img/kompozicio-2.jpg" alt="Kompozíció példa 2">
+                <img src="img/kompozicio-3.jpg" alt="Kompozíció példa 3">
+            </div>
+
             <h2 class="row">Időzítés:</h2>
             <p class="col-12">
                 Nem minden állatnak van türelme pózolni. Ezért vagy délutáni sziesztája közben kapd el, vagy kérj segítséget a fotózáshoz, és  egyikőtök keltse fel a figyelmét, és irányítsa egy jutifalatra, így rábírhatjátok hogy egy helyben maradjon a kép elkészültéig. Ha  fényképeződ beállításai megengedik, vedd minél rövidebbre a záridőt és használj (nem túl erős) vakut, így nem fog „bemozdulni" a képen.
+            </p>
+            <p class="text-end mb-0">
+                <a href="index.php"><small class="text-muted">Vissza a kezdőoldalra</small></a>
             </p>
         </main>
     <footer>

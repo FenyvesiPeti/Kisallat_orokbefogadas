@@ -45,6 +45,26 @@
     </div>
 </header>
 
+<button id="scrollToTopBtn" class="scroll-to-top" title="Az oldal tejejére">↑</button>
+    <script>
+        // Az oldal tetejére görgető gomb
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Gomb kattintás esemény
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Gomb megjelenítése görgetéskor
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+    </script>
+
 <!--Dropdon menühoz bootstrap + fontawesome + errorhandling.js-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
@@ -80,7 +100,6 @@
         unset($_SESSION['just_logged_in']);
     }
 ?>
-
 <!--Kijelentkezés utáni modalhoz bootstrap-->
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

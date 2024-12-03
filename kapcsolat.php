@@ -44,6 +44,9 @@
                 <p class="col-6 text-center"><a href="mailto:petgamerlol@gmail.com">kisallatkisegito@gmail.com</a></p>
                 <p class="col-6 text-center">36301234567</p>
             </div>
+            <p class="text-end mb-1">
+                <a href="index.php"><small class="text-muted">Vissza a kezdőoldalra</small></a>
+            </p>
         </main>
     <footer>
         <?php include 'footer.php'; ?>
